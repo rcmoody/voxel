@@ -1,0 +1,9 @@
+[package]
+name = "voxel"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+env_logger = "0.11.6"
+wgpu = "24.0.1"
+winit = "0.30.9"
