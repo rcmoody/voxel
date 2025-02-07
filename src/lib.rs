@@ -1,6 +1,6 @@
 use winit::application::ApplicationHandler;
 use winit::event::WindowEvent;
-use winit::event_loop::ActiveEventLoop;
+use winit::event_loop::{ActiveEventLoop, ControlFlow, EventLoop};
 use winit::window::{Window, WindowId};
 
 const WINDOW_TITLE: &str = "voxel";
@@ -30,4 +30,14 @@ impl ApplicationHandler for App {
             _ => (),
         }
     }
+}
+
+pub fn run() {
+    env_logger::init();
+
+    let event_loop = EventLoop::new().unwrap();
+    event_loop.set_control_flow(ControlFlow::Poll);
+
+    let mut app = App::default();
+    event_loop.run_app(&mut app);
 }
