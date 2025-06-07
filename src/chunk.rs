@@ -1,3 +1,5 @@
+use crate::mesh::{GenerateMesh, Mesh};
+
 pub const CHUNK_VOLUME: usize = CHUNK_WIDTH * CHUNK_HEIGHT * CHUNK_DEPTH;
 pub const CHUNK_WIDTH: usize = 15;
 pub const CHUNK_HEIGHT: usize = 255;
@@ -20,5 +22,11 @@ impl Chunk {
         Self {
             voxels: [Voxel::Air; CHUNK_VOLUME],
         }
+    }
+}
+
+impl GenerateMesh for Chunk {
+    fn generate_mesh(&self) -> Mesh {
+        todo!();
     }
 }

@@ -10,6 +10,6 @@ pub struct Mesh {
     indices: Vec<usize>,
 }
 
-pub fn generate_chunk_mesh(chunk: &Chunk) -> Mesh {
-    todo!();
+pub trait GenerateMesh {
+    fn generate_mesh(&self) -> Mesh;
 }
