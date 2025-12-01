@@ -36,6 +36,7 @@ impl Renderer<'_> {
                 label: None,
                 required_features: wgpu::Features::empty(),
                 required_limits: wgpu::Limits::default(),
+                experimental_features: wgpu::ExperimentalFeatures::disabled(),
                 memory_hints: Default::default(),
                 trace: wgpu::Trace::Off,
             })
@@ -97,6 +98,7 @@ impl Renderer<'_> {
                 label: None,
                 color_attachments: &[Some(wgpu::RenderPassColorAttachment {
                     view: &view,
+                    depth_slice: None,
                     resolve_target: None,
                     ops: wgpu::Operations {
                         load: wgpu::LoadOp::Clear(wgpu::Color {
